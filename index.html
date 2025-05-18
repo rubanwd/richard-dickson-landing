@@ -39,16 +39,14 @@
         padding: 4rem 1rem;
         text-align: center;
       }
-      .typewriter {
+      .typewriter-line {
         font-family: "Courier New", Courier, monospace;
-        display: inline-block;
-        white-space: nowrap;
-        overflow: hidden;
-        border-right: 3px solid black;
         font-size: 1.25rem;
-        animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
-        max-width: 100%;
-        box-sizing: border-box;
+        white-space: pre-wrap;
+        overflow: hidden;
+        border-right: 2px solid black;
+        width: fit-content;
+        margin: 0 auto;
       }
       @keyframes typing {
         from {
@@ -120,7 +118,8 @@
     <header class="hero">
       <div class="container">
         <h1>Richard Dickson Presents:</h1>
-        <p class="typewriter">Powered by noir. Minted by degeneracy.</p>
+        <p class="typewriter-line" id="line1"></p>
+        <p class="typewriter-line" id="line2"></p>
         <p>
           Step into a noir NFT universe — stylish, mysterious, and meme-powered.
         </p>
@@ -289,6 +288,34 @@
         &copy; 2025 Richard Dickson NFT Project. All rights reserved.
       </div>
     </footer>
+
+    <script>
+      const line1Text = "Powered by noir.";
+      const line2Text = "Minted by degeneracy.";
+
+      const line1Elem = document.getElementById("line1");
+      const line2Elem = document.getElementById("line2");
+
+      function typeLine(text, element, delay = 50, callback) {
+        let i = 0;
+        function typeChar() {
+          if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeChar, delay);
+          } else if (callback) {
+            callback();
+          }
+        }
+        typeChar();
+      }
+
+      typeLine(line1Text, line1Elem, 50, () => {
+        setTimeout(() => {
+          typeLine(line2Text, line2Elem, 50);
+        }, 400); // задержка между строками
+      });
+    </script>
 
     <script>
       const countdown = document.getElementById("countdown");
