@@ -88,7 +88,8 @@
       }
       .roadmap {
         background-color: #fafafa;
-        padding: 4rem 1rem;
+        margin: 0 auto;
+        max-width: 700px;
       }
       .roadmap h2 {
         font-weight: 600;
@@ -112,6 +113,59 @@
         font-size: 0.9rem;
         color: #666;
       }
+      .pulse-logo {
+        animation: pulse 1.5s infinite;
+        transform-origin: center;
+      }
+
+      .bounce-logo {
+        animation: bounce 2s infinite;
+        transform-origin: center;
+      }
+
+      .btn-outline-secondary {
+        background: #ffffff;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.15);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        30% {
+          transform: translateY(-6px);
+        }
+        50% {
+          transform: translateY(3px);
+        }
+        70% {
+          transform: translateY(-2px);
+        }
+      }
+
+      .cta-buttons .cta-btn {
+        min-width: 200px;
+        justify-content: center;
+      }
+
+      @media (max-width: 576px) {
+        .cta-buttons .cta-btn {
+          width: 100%;
+        }
+      }
+
       @media (max-width: 768px) {
         .hero h1 {
           font-size: 30px;
@@ -122,38 +176,79 @@
   <body>
     <header class="hero">
       <div class="container">
+        <img
+          src="img/logo-dick.png"
+          alt="Richard Dickson NFT Logo"
+          style="max-height: 120px; margin-bottom: 1rem"
+        />
         <h1>Richard Dickson Presents:</h1>
         <p class="typewriter-line" id="line1"></p>
         <p class="typewriter-line" id="line2"></p>
         <p>
           Step into a noir NFT universe — stylish, mysterious, and meme-powered.
         </p>
-        <div class="cta-buttons">
+        <div
+          class="cta-buttons d-flex flex-wrap justify-content-center gap-3 mt-4"
+        >
           <a
             href="https://x.com/MrDickNFTSolana"
             target="_blank"
-            class="btn btn-dark"
-            >🔍 Explore the Story</a
+            class="btn btn-dark d-inline-flex align-items-center gap-2 cta-btn"
           >
+            Follow
+            <img
+              src="img/x-logo.png"
+              alt="X logo"
+              width="24"
+              height="24"
+              class="pulse-logo"
+            />
+          </a>
+
           <a
             href="https://discord.gg/YOUR_INVITE"
             target="_blank"
-            class="btn btn-outline-primary"
-            >💬 Join the Discord</a
+            class="btn btn-outline-primary d-inline-flex align-items-center gap-2 cta-btn"
           >
+            Join Discord
+            <img
+              src="img/discord-logo.png"
+              alt="Discord logo"
+              width="24"
+              height="24"
+              class="bounce-logo"
+            />
+          </a>
+
           <a
             href="https://magiceden.io/marketplace/mrdick"
             target="_blank"
-            class="btn btn-primary"
-            >🎭 View the Collection</a
+            class="btn btn-primary d-inline-flex align-items-center gap-2 cta-btn"
           >
+            View Collection
+            <img
+              src="img/magic-eden-icon.png"
+              alt="Magic Eden icon"
+              width="24"
+              height="24"
+            />
+          </a>
+
           <a
             href="https://mrdk.xyz"
             target="_blank"
-            class="btn btn-outline-secondary"
-            >🕵️ Full Universe (18+)</a
+            class="btn btn-outline-secondary d-inline-flex align-items-center gap-2 cta-btn"
           >
+            Full Universe
+            <img
+              src="img/27-globe.gif"
+              alt="Detective icon"
+              width="24"
+              height="24"
+            />
+          </a>
         </div>
+
         <div id="countdown"></div>
       </div>
     </header>
@@ -174,79 +269,56 @@
 
     <section class="bonus">
       <div class="container">
-        <h2>🎁 Early Supporter Bonuses</h2>
-        <p>We reward the curious:</p>
+        <h2>🔍 Why Hold Mr. Dick?</h2>
         <ul class="list-unstyled d-inline-block text-start">
-          <li>✅ First 100 Discord members get early whitelist access</li>
-          <li>🎉 Exclusive airdrops for early Twitter followers</li>
-          <li>🔍 Private briefings for active community members</li>
+          <li>✅ Early access to future mints & case files</li>
+          <li>🎭 Genesis holders get exclusive airdrops & badges</li>
+          <li>💰 Earn $MRDICK by staking NFTs</li>
+          <li>🧠 Vote in the DAO & shape the story</li>
+          <li>🎮 Use NFTs in the upcoming detective game</li>
+          <li>📚 New comics drop every 100 days</li>
+          <li>🔥 Built for memes — fueled by absurdity</li>
+          <li>🤝 Collabs, perks, and long-term rewards</li>
         </ul>
-        <p>
-          Join the Discord, follow the project, and stay engaged — every
-          detective gets their reward.
-        </p>
+        <p>Hold a piece of the mystery — and be part of the absurdverse.</p>
       </div>
     </section>
 
     <section class="roadmap">
       <div class="container">
-        <h2>📍 Roadmap</h2>
+        <h2>📍 Roadmap Highlights</h2>
         <ul>
           <li>
-            <strong>Phase 1 – May 2025:</strong> Launch of the official website.
-            Socials go live. Teaser drops begin. Absurdity officially unleashed.
+            <strong>May 2025:</strong> Website & socials go live. Teasers begin.
           </li>
           <li>
-            <strong>Phase 2 – June 2025:</strong> Genesis NFT Collection
-            launches on Magic Eden. 1,000 absurd faces go public. First mints,
-            early collector perks, and community hype takes off.
+            <strong>June 2025:</strong> Genesis NFT drop on Magic Eden. 1,000
+            faces revealed.
           </li>
           <li>
-            <strong>Phase 3 – July 2025:</strong> Second NFT wave hits. New
-            collectibles drop into the growing Mr. Dickverse. Private auctions,
-            limited comic previews, and experimental mint formats.
+            <strong>July 2025:</strong> New NFTs, comics, and early collector
+            perks.
           </li>
           <li>
-            <strong>Phase 4 – September 2025:</strong> $MRDICK launches on
-            Solana. Token utility begins. Airdrops, staking, and meme-powered
-            mechanics roll out. Learn more.
+            <strong>Sept 2025:</strong> $MRDICK token launch — airdrops &
+            staking begin.
           </li>
           <li>
-            <strong>Phase 5 – October 2025:</strong> Major DEX listings for
-            $MRDICK. Meme influencers jump in. Twitter/X raids ignite. Community
-            lore gets deeper and weirder.
+            <strong>Oct–Dec 2025:</strong> More drops, DAO voting, meme
+            bounties, and lore updates.
           </li>
           <li>
-            <strong>Phase 6 – November 2025:</strong> Second major NFT drop: Mr.
-            Dick: Case Files. Comic-panel NFTs go live. Community begins voting
-            on storylines through DAO.
+            <strong>Q1 2026:</strong> Game development starts — holders unlock
+            early features.
           </li>
           <li>
-            <strong>Phase 7 – December 2025:</strong> Meme bounties. DAO
-            staking. Secret lore unlocked for holders. Utility expands across
-            NFTs and tokens — the Dickverse gets real.
-          </li>
-          <li>
-            <strong>Phase 8 – Q1 2026:</strong> Development starts on Mr. Dick:
-            The Game — an interactive, absurdist detective game with NFT roles,
-            puzzles, and community-crafted chaos. Learn more.
-          </li>
-          <li>
-            <strong>Phase 9 – Q2 2026:</strong> Alpha launch of Mr. Dick: The
-            Game for NFT holders. Rare skins, token-gated missions, and early
-            access to the weirdest game Web3 has seen.
-          </li>
-          <li>
-            <strong>Ongoing – The Absurdverse Grows:</strong> Quarterly game
-            updates. Lore expansions. New missions. DAO votes shape future
-            cases, drops, and madness.
-          </li>
-          <li>
-            <strong>Ongoing – Every 100 Days:</strong> 10 new comic NFTs arrive
-            with exclusive stories, Easter eggs, and detective lore. Collected.
-            Minted. Worshipped.
+            <strong>Q2 2026:</strong> Alpha game launch — NFTs gain in-game
+            utility.
           </li>
         </ul>
+        <p class="text-center mt-3">
+          The story evolves with every mint. Stay absurd.
+        </p>
       </div>
     </section>
 
