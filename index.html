@@ -178,6 +178,9 @@
         background: #ffffff;
       }
 
+      .back-counter {
+        color: #0d6efd;
+      }
       @keyframes pulse {
         0% {
           transform: scale(1);
@@ -248,6 +251,7 @@
             href="https://x.com/MrDickNFTSolana"
             target="_blank"
             class="btn btn-dark d-inline-flex align-items-center gap-2 cta-btn"
+            data-label="Twitter/X"
           >
             Follow
             <img
@@ -263,6 +267,7 @@
             href="https://discord.gg/Wpkzd3Afjv"
             target="_blank"
             class="btn btn-outline-primary d-inline-flex align-items-center gap-2 cta-btn"
+            data-label="\Discord"
           >
             Join Discord
             <img
@@ -278,6 +283,7 @@
             href="https://magiceden.io/marketplace/mrdick"
             target="_blank"
             class="btn btn-primary d-inline-flex align-items-center gap-2 cta-btn"
+            data-label="Magic Eden"
           >
             View Collection
             <img
@@ -292,6 +298,7 @@
             href="https://mrdk.xyz"
             target="_blank"
             class="btn btn-outline-secondary d-inline-flex align-items-center gap-2 cta-btn"
+            data-label="Black Website"
           >
             Full Universe
             <img
@@ -413,6 +420,11 @@
         </p>
       </div>
       <br />
+      <br />
+      <h5 style="text-align: center">
+        🔥 Want the full absurd story? <br />
+        Tap into the **Mr. Dick Universe** — where noir meets memes.
+      </h5>
       <div
         class="cta-buttons d-flex flex-wrap justify-content-center gap-3 mt-4"
       >
@@ -420,6 +432,7 @@
           href="https://x.com/MrDickNFTSolana"
           target="_blank"
           class="btn btn-dark d-inline-flex align-items-center gap-2 cta-btn"
+          data-label="Twitte/X_N"
         >
           Follow
           <img
@@ -435,6 +448,7 @@
           href="https://discord.gg/Wpkzd3Afjv"
           target="_blank"
           class="btn btn-outline-primary d-inline-flex align-items-center gap-2 cta-btn"
+          data-label="Discord_N"
         >
           Join Discord
           <img
@@ -450,6 +464,7 @@
           href="https://magiceden.io/marketplace/mrdick"
           target="_blank"
           class="btn btn-primary d-inline-flex align-items-center gap-2 cta-btn"
+          data-label="Magic Eden_N"
         >
           View Collection
           <img
@@ -464,6 +479,7 @@
           href="https://mrdk.xyz"
           target="_blank"
           class="btn btn-outline-secondary d-inline-flex align-items-center gap-2 cta-btn"
+          data-label="Black Website_N"
         >
           Full Universe
           <img
@@ -545,11 +561,77 @@
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        countdown.innerHTML = `🕒 Mint starts in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        countdown.innerHTML = `🕒 <div>Mint starts in:</div> <div class="back-counter">${days}d ${hours}h ${minutes}m ${seconds}s</div>`;
       }
 
       updateCountdown();
       setInterval(updateCountdown, 1000);
+    </script>
+    <script>
+      window.onload = function () {
+        document.querySelectorAll("a").forEach((el) => {
+          el.addEventListener("click", function () {
+            const customLabel = this.getAttribute("data-label");
+            const linkText = this.textContent.trim();
+            const href = this.getAttribute("href");
+
+            const label = customLabel || linkText;
+
+            gtag("event", "click_link", {
+              event_category: "Outbound Link",
+              event_label: label,
+              value: href,
+            });
+          });
+        });
+      };
+    </script>
+
+    <script>
+      const sections = document.querySelectorAll("section, .hero, footer");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const sectionName =
+                entry.target.className || entry.target.id || "unknown";
+              gtag("event", "section_view", {
+                event_category: "Section Scroll",
+                event_label: sectionName,
+              });
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    </script>
+    <script>
+      window.addEventListener("scroll", function () {
+        const scrollDepth = Math.floor(
+          ((window.scrollY + window.innerHeight) / document.body.scrollHeight) *
+            100
+        );
+
+        if (scrollDepth >= 25 && !window._scroll25) {
+          window._scroll25 = true;
+          gtag("event", "scroll_depth", { event_label: "25%" });
+        }
+        if (scrollDepth >= 50 && !window._scroll50) {
+          window._scroll50 = true;
+          gtag("event", "scroll_depth", { event_label: "50%" });
+        }
+        if (scrollDepth >= 75 && !window._scroll75) {
+          window._scroll75 = true;
+          gtag("event", "scroll_depth", { event_label: "75%" });
+        }
+        if (scrollDepth >= 100 && !window._scroll100) {
+          window._scroll100 = true;
+          gtag("event", "scroll_depth", { event_label: "100%" });
+        }
+      });
     </script>
   </body>
 </html>
